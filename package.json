@@ -1,0 +1,36 @@
+{
+  "name": "server-bun",
+  "version": "0.0.1",
+  "description": "Bun server template with prisma, typescript",
+  "author": "devhoangkien",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devhoangkien/bun-server-template.git"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build --target=bun src/index.ts --outfile=dist/index.js",
+    "start": "bun run dist/index.js",
+    "dev": "bun --hot run src/index.ts",
+    "debug": "bun --inspect run src/index.ts",
+    "prisma:generate": "prisma generate",
+    "db:migrate-save": "prisma migrate dev --preview-feature",
+    "db:migrate-up": "prisma migrate deploy --preview-feature",
+    "db:clean": "bun run prisma/clean.ts",
+    "db:init": "bun run db:migrate-save --name 'initial version' && bun run db:migrate-up && bun run seed",
+    "seed": "bun run prisma/seeds/index.ts"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.20.1",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.4.1",
+    "prisma": "^5.4.1"
+  }
+}
