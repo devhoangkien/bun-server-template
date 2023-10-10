@@ -2,16 +2,20 @@ import { createSchema, createYoga } from 'graphql-yoga'
 import { BunToText } from './utils/text-logs';
 import { readFileSync } from 'node:fs'
 import { Resolvers } from '../resolvers-types'
-
+import { PrismaClient } from '@prisma/client';
+import { postResolvers } from './modules/posts/post.resolvers';
 
 const typeDefs = readFileSync('./schema.graphql', 'utf8')
- 
+
 const resolvers: Resolvers = {
   Query: {
     // typed resolvers
-    posts: () => {
-      console.info('posts')
-    }
+    ...postResolvers.Query, 
+  },
+
+  Mutation: {
+    // typed resolvers
+    ...postResolvers.Mutation, 
   },
 
 }

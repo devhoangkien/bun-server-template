@@ -7,10 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator pg {
-  provider = "planet-graphql"
-}
-
 model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())

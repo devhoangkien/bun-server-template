@@ -1,16 +1,18 @@
-type Author {
-  id: Int!
-  firstName: String!
-  lastName: String!
-  posts(findTitle: String): [Post]
-}
- 
+
 type Post {
-  id: Int!
-  title: String!
-  author: Author
-}
- 
+    id: ID!
+    title: String!
+    content: String!
+  }
+
 type Query {
-  posts: [Post]
-}
+    posts: [Post]
+    getPost(id: ID!): Post
+    getAllPosts: [Post!]!
+  }
+
+type Mutation {
+    createPost(title: String!, content: String!): Post
+    updatePost(id: ID!, title: String, content: String): Post
+    deletePost(id: ID!): Boolean
+  }
