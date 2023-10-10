@@ -11,26 +11,36 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build --target=bun src/index.ts --outfile=dist/index.js",
-    "start": "bun run dist/index.js",
-    "dev": "bun --hot run src/index.ts",
-    "debug": "bun --inspect run src/index.ts",
+    "build": "bun run build.ts",
+    "start": "bun run dist/main.js",
+    "dev": "bun --watch src/main.ts",
+    "dev:hot": "bun --hot src/main.ts",
+    "debug": "bun --inspect run src/main.ts",
     "prisma:generate": "prisma generate",
     "db:migrate-save": "prisma migrate dev --preview-feature",
     "db:migrate-up": "prisma migrate deploy --preview-feature",
     "db:clean": "bun run prisma/clean.ts",
     "db:init": "bun run db:migrate-save --name 'initial version' && bun run db:migrate-up && bun run seed",
-    "seed": "bun run prisma/seeds/index.ts"
+    "seed": "bun run prisma/seeds/index.ts",
+    "generate": "graphql-codegen"
   },
   "devDependencies": {
+    "@eddeee888/gcg-typescript-resolver-files": "^0.7.1",
+    "@graphql-codegen/cli": "^5.0.0",
     "@prisma/cli": "^2.20.1",
-    "bun-types": "latest"
+    "@types/figlet": "^1.5.6",
+    "@types/swagger-ui": "^3.52.2",
+    "bun-types": "latest",
+    "figlet": "^1.6.0",
+    "swagger-ui": "^5.9.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^5.4.1",
+    "@prisma/client": "latest",
+    "graphql": "^16.8.1",
+    "graphql-yoga": "^4.0.5",
     "prisma": "^5.4.1"
   }
 }
