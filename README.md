@@ -1,20 +1,25 @@
-# server-bun
-## information
-- node: 16+
-- bun: 1.0.4
 
-Clone source code: 
+# Server template with BUN - Graphql and Rest API
+
+## Information
+- node: >16
+- bun: 1.0.4
+- prisma
+- graphql-yoga
+- @graphql-yoga/plugin-sofa
+
+## Clone source code: 
 ```bash
 git clone https://github.com/devhoangkien/bun-server-template.git
 ```
 
-To install dependencies:
+## To install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+## To run:
 
 ```bash
 # docker run
