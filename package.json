@@ -32,15 +32,16 @@
     "@types/swagger-ui": "^3.52.2",
     "bun-types": "latest",
     "figlet": "^1.6.0",
+    "prisma": "^5.4.2",
     "swagger-ui": "^5.9.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@prisma/client": "latest",
+    "@graphql-yoga/plugin-sofa": "^2.0.5",
+    "@prisma/client": "^5.4.2",
     "graphql": "^16.8.1",
-    "graphql-yoga": "^4.0.5",
-    "prisma": "^5.4.1"
+    "graphql-yoga": "^4.0.5"
   }
 }
