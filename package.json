@@ -39,6 +39,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@graphql-yoga/plugin-sofa": "^2.0.5",
     "@prisma/client": "^5.4.2",
     "graphql": "^16.8.1",
     "graphql-yoga": "^4.0.5"

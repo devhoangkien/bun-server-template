@@ -2,12 +2,28 @@ import { createSchema, createYoga } from 'graphql-yoga'
 import { BunToText } from './utils/text-logs';
 import { readFileSync } from 'node:fs'
 import { resolvers } from './modules/app.resolvers';
+import { useSofa } from '@graphql-yoga/plugin-sofa'
 
+ 
 const typeDefs = readFileSync('./schema.graphql', 'utf8')
 
 const yoga = createYoga({
-  
+  landingPage: true,
   schema: createSchema({ typeDefs, resolvers }),
+  plugins: [
+    useSofa({
+      basePath: '/api',
+      swaggerUI: {
+        endpoint: '/swagger'
+      },
+      openAPI: {
+        info: {
+          title: 'Bun Server REST API',
+          version: '1.0.0'
+        }
+      }
+    })
+  ]
 }, )
 
 const server = Bun.serve({ 
