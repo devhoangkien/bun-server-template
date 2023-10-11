@@ -1,10 +1,14 @@
 // post.resolvers.ts
 import { Post, PrismaClient } from '@prisma/client';
 import { Resolvers } from 'resolvers-types';
+import { PostService } from './post.service';
 
 const prisma = new PrismaClient();
 
-export const postResolvers: Resolvers = {
+const postService = new PostService();
+
+
+export const PostResolvers: Resolvers = {
   Query: {
     getPost: async (_, { id }: { id: string }) => {
       return prisma.post.findUnique({ where: { id } });
@@ -26,3 +30,5 @@ export const postResolvers: Resolvers = {
     },
   },
 };
+
+
