@@ -8,22 +8,29 @@ import { schema } from '../schema';
 const yoga = createYoga({
   landingPage: true,
   schema,
-  plugins: [
-    useSofa({
-      basePath: '/api',
-      swaggerUI: {
-        endpoint: '/swagger'
-      },
-      openAPI: {
-        info: {
-          title: 'Bun Server REST API',
-          version: '1.0.0',
-          description: 'Bun Server REST API'
+  /**
+   * @description enable plugin turn on REST API
+   * 
+    playground
+   * 
+   */
 
-        }
-      },
-    }),
-  ]
+  // plugins: [
+  //   useSofa({
+  //     basePath: '/api',
+  //     swaggerUI: {
+  //       endpoint: '/swagger'
+  //     },
+  //     openAPI: {
+  //       info: {
+  //         title: 'Bun Server REST API',
+  //         version: '1.0.0',
+  //         description: 'Bun Server REST API'
+
+  //       }
+  //     },
+  //   }),
+  // ]
 },)
 
 const server = Bun.serve({
