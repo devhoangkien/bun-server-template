@@ -1,11 +1,13 @@
-import { PrismaClient, User } from "@prisma/client";
+import {  Prisma, PrismaClient, User } from "@prisma/client";
 import newLogger from '../../utils/logger';
 
 export class UserService {
   logger = newLogger.child({ module: UserService.name });
+  private readonly prisma: PrismaClient 
   constructor(
-    private readonly prisma: PrismaClient,
-  ) {}
+  ) {
+    this.prisma = new PrismaClient();
+  }
 
   async getUserById(id: string): Promise<User | null> {
     return await this.prisma.user.findUnique({

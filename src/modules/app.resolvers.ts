@@ -1,11 +1,13 @@
 import { Resolvers } from 'resolvers-types';
 import { PostResolvers } from './posts/post.resolvers';
-import { userResolvers } from './users/user.resolvers';
+import { UserResolvers } from './users/user.resolvers';
+
+const userResolvers = new UserResolvers();
 
 export const resolvers: Resolvers = {
   Query: {
     ...PostResolvers.Query,
-    ...userResolvers.Query,
+    getUser: userResolvers.getUser.bind(userResolvers),
   },
 
   Mutation: {
