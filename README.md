@@ -38,4 +38,31 @@ bun start
 
 ```
 
+- prisma/
+  - migrations/
+  - seeds/
+  - client.ts
+  - schema.prisma
+- src/
+  - common/
+  - abilities/
+    - abilities.ts
+  - decorators/
+  - guards/
+  - middleware/
+  - modules/
+    - users/
+      - user.service.ts
+      - user.resolvers.ts
+  - app.resolvers.ts
+  - utils/
+    - index.ts
+    - text-logs.ts
+  - main.ts
+- codegen.ts
+- resolvers-types.ts
+- schema.graphql
+- schema.ts
+
+
 This project was created using `bun init` in bun v1.0.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

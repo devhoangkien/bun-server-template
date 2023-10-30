@@ -5,5 +5,5 @@ const typeDefs = readFileSync('./schema.graphql', 'utf8')
  
 export const schema = createSchema({
   typeDefs: typeDefs,
-  resolvers: resolvers
+  resolvers: resolvers,
 })

@@ -5,10 +5,20 @@ type Post {
     content: String
   }
 
+type User {
+    id: ID!
+    name: String
+    email: String
+    password: String
+    posts: [Post]
+  }
+
+
 type Query {
     posts: [Post]
     getPost(id: ID!): Post
     getAllPosts: [Post!]!
+    getUser(id: ID!): User
   }
 
 type Mutation {
