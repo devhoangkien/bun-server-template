@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 import { GraphQLError } from "graphql";
 import newLogger from "../../utils/logger";
 import { UserService } from "./user.service";
@@ -6,9 +5,10 @@ import { UserService } from "./user.service";
 const logger = newLogger.child({ module: 'user.resolvers.ts' });
 
 export class UserResolvers {
-  private  userService: UserService
-  constructor() {
-    this.userService = new UserService();
+  private userService: UserService;
+
+  constructor(userService: UserService) {
+    this.userService = userService;
   }
 
   async getUser(_parent, args: { id: string }) {
