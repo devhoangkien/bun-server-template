@@ -1,8 +1,8 @@
 import { Resolvers } from 'resolvers-types';
-import { PostResolvers } from './posts/post.resolvers';
-import { UserResolvers } from './users/user.resolvers';
+import { PostResolvers } from './modules/posts/post.resolvers';
+import { UserResolvers } from './modules/users/user.resolvers';
 import { PrismaService } from '@app/providers/prisma/prisma.service';
-import UserService from './users/user.service';
+import UserService from './modules/users/user.service';
 
 const prisma = new PrismaService()
 // Initialize UserService and inject PrismaService

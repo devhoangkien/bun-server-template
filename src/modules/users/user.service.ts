@@ -1,20 +1,18 @@
-import { PrismaClient, User } from "@prisma/client";
-import newLogger from '../../utils/logger';
-import { PrismaService } from "@app/providers/prisma/prisma.service";
+import { inject, injectable } from 'inversify';
+import "reflect-metadata";
 
+import TYPES from '@app/types'; // Tệp chứa các symbols
+import { PrismaService } from '@app/providers/prisma/prisma.service'; // Đảm bảo đường dẫn đúng
+
+@injectable()
 export class UserService {
-  logger = newLogger.child({ module: UserService.name });
-  private readonly prisma: PrismaClient;
+  constructor(@inject(TYPES.PrismaService) private prismaService: PrismaService) {}
 
-  constructor(prismaService: PrismaService) {
-    this.prisma = prismaService.getPrisma();
-  }
-
-  async getUserById(id: string): Promise<User | null> {
-    return await this.prisma.user.findUnique({
+  async getUserById(id: string) {
+    return await this.prismaService.getPrisma().user.findUnique({
       where: { id },
     });
   }
 }
 
-export default UserService;
+export default UserService

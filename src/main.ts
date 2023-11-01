@@ -4,13 +4,17 @@ import { useSofa } from '@graphql-yoga/plugin-sofa'
 import { schema } from '../schema';
 import chalk from 'chalk';
 import { PrismaService } from './providers/prisma/prisma.service';
+import "reflect-metadata";
 
-const prismaService = new PrismaService(); // Initialize PrismaService
 
+import container from './app.container';
 
+import TYPES from './types';
+
+const prismaService = container.get<PrismaService>(TYPES.PrismaService);
 
 async function main() {
-  const prisma = prismaService.getPrisma();
+
   const yoga = createYoga({
     landingPage: true,
     schema,
@@ -41,7 +45,6 @@ async function main() {
   },)
 
   await prismaService.connect();
-
   
 
 

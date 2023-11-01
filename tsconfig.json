@@ -4,6 +4,8 @@
       "@app/*": ["./src/*"],
       "@providers/*": ["./src/providers/*"],
     },
+    "lib": ["es6"],
+    "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -20,7 +22,6 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "resolveJsonModule": true,
-    "lib": ["ESNext"],
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
     "noEmit": true,
@@ -31,7 +32,11 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
-      "bun-types" 
+      "bun-types" ,
+      "reflect-metadata"
+    ],
+    "include": [
+      "src/app.container.ts",
     ]
   }
 }

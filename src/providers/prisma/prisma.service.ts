@@ -1,5 +1,8 @@
 import { PrismaClient } from '@prisma/client';
+import { injectable } from 'inversify';
+import "reflect-metadata";
 
+@injectable()
 export class PrismaService {
   private readonly prisma: PrismaClient;
 
