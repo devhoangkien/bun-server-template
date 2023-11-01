@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
     "paths": {
-      "@app/*": ["./src/*"],
-      "@providers/*": ["./src/providers/*"],
+      "@app/*": [
+        "./src/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ]
     },
-    "lib": ["es6"],
+    "lib": [
+      "es6"
+    ],
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
@@ -32,11 +38,8 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
-      "bun-types" ,
+      "bun-types",
       "reflect-metadata"
-    ],
-    "include": [
-      "src/app.container.ts",
     ]
   }
 }

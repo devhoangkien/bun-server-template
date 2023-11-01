@@ -1,12 +1,12 @@
 import { inject, injectable } from 'inversify';
 import "reflect-metadata";
 import { GraphQLError } from "graphql";
-
-import TYPES from '@app/types'; // Tệp chứa các symbols
-import { UserService } from './user.service'; // Đảm bảo đường dẫn đúng
+import TYPES from '@app/types';
+import { UserService } from './user.service';
 import newLogger from "../../utils/logger";
 
 const logger = newLogger.child({ module: 'user.resolvers.ts' });
+
 @injectable()
 export class UserResolvers {
   private userService: UserService;
@@ -34,4 +34,4 @@ export class UserResolvers {
   }
 }
 
-export default UserResolvers
+export default UserResolvers;

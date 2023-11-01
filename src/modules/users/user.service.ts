@@ -1,8 +1,7 @@
 import { inject, injectable } from 'inversify';
 import "reflect-metadata";
-
-import TYPES from '@app/types'; // Tệp chứa các symbols
-import { PrismaService } from '@app/providers/prisma/prisma.service'; // Đảm bảo đường dẫn đúng
+import TYPES from '@app/types';
+import { PrismaService } from '@app/providers/prisma/prisma.service';
 
 @injectable()
 export class UserService {
@@ -15,4 +14,4 @@ export class UserService {
   }
 }
 
-export default UserService
+export default UserService;

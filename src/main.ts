@@ -24,7 +24,6 @@ async function main() {
       playground
      * 
      */
-    /**
     plugins: [
       useSofa({
         basePath: '/api',
@@ -41,7 +40,6 @@ async function main() {
         },
       }),
     ]
-     */
   },)
 
   await prismaService.connect();
